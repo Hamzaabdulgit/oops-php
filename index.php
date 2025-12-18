@@ -1,22 +1,16 @@
 <?php
-require_once "classes/Student.php";
-require_once "classes/Circle.php";
-require_once "classes/MathHelper.php";
+require_once "classes/StudentModel.php";
 
-$student = new Student("Hamza", 23, "OOPS in PHP");
-echo $student->intro();
+$studentModel = new StudentModel();
 
-echo "<br><br>";
+// Insert test data
+$studentModel->insert("Hamza", 23, "OOPS in PHP");
 
-echo $student->log("Student object created");
+// Fetch data
+$students = $studentModel->getAll();
 
-echo "<br><br>";
+echo "<h3>Students List</h3>";
 
-$circle = new Circle(5);
-echo "Circle Area: " . $circle->area();
-
-echo "<br><br>";
-
-echo "Addition: " . MathHelper::add(10, 20);
-echo "<br>";
-echo "Square of 5: " . MathHelper::square(5);
+foreach ($students as $student) {
+    echo $student['name'] . " - " . $student['course'] . "<br>";
+}
