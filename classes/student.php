@@ -1,13 +1,16 @@
 <?php
-
 require_once "Person.php";
 
 class Student extends Person {
-    public $course;
+    private $course;
 
     public function __construct($name, $age, $course) {
         parent::__construct($name, $age);
         $this->course = $course;
+    }
+
+    public function getCourse() {
+        return $this->course;
     }
 
     public function intro() {

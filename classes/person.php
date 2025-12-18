@@ -1,12 +1,34 @@
 <?php
 
 class Person {
-    public $name;
-    public $age;
+    private $name;
+    private $age;
 
     public function __construct($name, $age) {
+        $this->setName($name);
+        $this->setAge($age);
+    }
+
+    // Setter for name
+    public function setName($name) {
         $this->name = $name;
-        $this->age  = $age;
+    }
+
+    // Getter for name
+    public function getName() {
+        return $this->name;
+    }
+
+    // Setter for age
+    public function setAge($age) {
+        if ($age > 0) {
+            $this->age = $age;
+        }
+    }
+
+    // Getter for age
+    public function getAge() {
+        return $this->age;
     }
 
     public function intro() {
